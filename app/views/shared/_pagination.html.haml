@@ -1,0 +1,5 @@
+%ul.pagination.pagination-sm.pull-right
+  - for i in 1..total_pages do
+    - page = i - 1
+    %li{ class: ((params['page'].nil? && i == 1) || params['page'].to_i == page) ? 'active' : '' }
+      = link_to i, root_url(page: page)

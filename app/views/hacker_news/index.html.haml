@@ -1,0 +1,43 @@
+#news
+  .row.spacer
+  - if @results['hits'].empty?
+    .col-lg-10.col-lg-offset-1.col-md-10.col-md-offset-1.col-xs-10.col-xs-offset-1.text-center
+      %em No results found
+  - else
+    - @results['hits'].each do |result|
+      .row
+        .col-lg-5.col-md-5.col-xs-5.text-right
+          Date of creation:
+        .col-lg-5.col-md-5.col-xs-5
+          = result['created_at'].in_time_zone.strftime '%d/%m/%Y'
+
+      .row
+        .col-lg-5.col-md-5.col-xs-5.text-right
+          Title:
+        .col-lg-5.col-md-5.col-xs-5
+          = result['title']
+
+      .row
+        .col-lg-5.col-md-5.col-xs-5.text-right
+          = fa_icon 'user-secret'
+          Author name:
+        .col-lg-5.col-md-5.col-xs-5
+          = result['author']
+
+      .row
+        .col-lg-5.col-md-5.col-xs-5.text-right
+          Author points:
+        .col-lg-5.col-md-5.col-xs-5
+          = result['points']
+
+      .row
+        .col-lg-5.col-md-5.col-xs-5.text-right
+          News link:
+        .col-lg-5.col-md-5
+          %a{ href: result['url'], target: '_blank' }
+            = result['url']
+            = fa_icon 'external-link'
+
+      %hr
+
+    = render 'shared/pagination', total_pages: @results['nbPages']
