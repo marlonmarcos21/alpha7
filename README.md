@@ -3,7 +3,7 @@
 * Clone
 
 ```
-git clone git@github.com:marlonmarcos21/alpha7.git
+git clone https://github.com/marlonmarcos21/alpha7.git
 ```
 
 * Install
