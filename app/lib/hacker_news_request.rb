@@ -1,6 +1,5 @@
 class HackerNewsRequest
-  attr_reader :net_http
-  attr_accessor :uri
+  attr_reader :net_http, :uri
 
   ENDPOINT = 'http://hn.algolia.com/api/v1/search_by_date'.freeze
 
